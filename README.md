@@ -46,7 +46,7 @@ Use `.claude-plugin/plugin.json` and the same `skills/` directory for a Claude C
 
 For local Claude Code testing, clone this repository and load it as a local plugin directory. For public distribution, this repository can be used as the public source package; marketplace submission can be handled separately if Anthropic requests a marketplace catalog file or review form.
 
-For a step-by-step local setup guide in Spanish, see [Claude Code Local Manual APH](docs/CLAUDE-CODE-LOCAL-APH.md).
+For a step-by-step local setup guide in Spanish, see [Claude Code Local Manual](docs/CLAUDE-CODE-LOCAL.md).
 
 ## Usage
 

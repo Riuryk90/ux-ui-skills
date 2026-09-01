@@ -1,4 +1,4 @@
-# Manual Local Para Claude Code, APH
+# Manual Local Para Claude Code
 
 Esta guía explica cómo hacer funcionar `ux-ui-skills` de forma local con Claude Code.
 
