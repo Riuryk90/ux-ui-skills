@@ -1,10 +1,20 @@
 {
   "name": "ux-ui-skills",
+  "displayName": "UX/UI Skills",
   "version": "1.0.0",
   "description": "Two standalone UX/UI skills: one for design and implementation, one for expert heuristic review.",
   "author": {
     "name": "Wincenth Matthews Muñoz"
   },
   "license": "MIT",
+  "homepage": "https://github.com/Riuryk90/ux-ui-skills",
+  "repository": "https://github.com/Riuryk90/ux-ui-skills.git",
+  "keywords": [
+    "ux",
+    "ui",
+    "design",
+    "accessibility",
+    "heuristic-review"
+  ],
   "skills": "./skills/"
 }

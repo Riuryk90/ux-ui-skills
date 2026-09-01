@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Verificación correcta del plugin en Claude Code</title>
+  <desc id="desc">Checklist estilo terminal con los comandos esperados y señales de éxito después de cargar el plugin.</desc>
+  <rect width="1200" height="520" fill="#111827"/>
+  <rect x="80" y="70" width="1040" height="380" rx="8" fill="#020617" stroke="#334155" stroke-width="2"/>
+  <circle cx="118" cy="105" r="9" fill="#ef4444"/>
+  <circle cx="148" cy="105" r="9" fill="#f59e0b"/>
+  <circle cx="178" cy="105" r="9" fill="#22c55e"/>
+  <text x="220" y="113" font-family="Arial, sans-serif" font-size="18" fill="#cbd5e1">Terminal de Claude Code</text>
+  <g font-family="Consolas, Menlo, monospace" font-size="22">
+    <text x="120" y="170" fill="#93c5fd">&gt; claude --plugin-dir .</text>
+    <text x="120" y="215" fill="#86efac">Plugin local cargado: ux-ui-skills</text>
+    <text x="120" y="270" fill="#93c5fd">&gt; /help</text>
+    <text x="120" y="315" fill="#f8fafc">Skills disponibles del plugin:</text>
+    <text x="150" y="360" fill="#fde68a">/ux-ui-skills:ux-ui-build</text>
+    <text x="150" y="405" fill="#fde68a">/ux-ui-skills:ux-ui-review</text>
+  </g>
+</svg>

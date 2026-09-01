@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Estructura de carpetas del plugin UX/UI Skills</title>
+  <desc id="desc">Diagrama de la raíz del plugin con los manifiestos y las dos carpetas de skills.</desc>
+  <rect width="1200" height="650" fill="#f8fafc"/>
+  <text x="70" y="76" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">Estructura raíz del plugin</text>
+  <text x="70" y="116" font-family="Arial, sans-serif" font-size="18" fill="#334155">Pasa esta carpeta a Claude Code con --plugin-dir. El manifiesto y las skills van en la raíz.</text>
+  <g font-family="Arial, sans-serif" font-size="18">
+    <rect x="70" y="165" width="1060" height="400" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="110" y="215" font-size="22" font-weight="700" fill="#0f172a">ux-ui-skills/</text>
+    <line x1="130" y1="235" x2="130" y2="505" stroke="#94a3b8" stroke-width="2"/>
+    <text x="165" y="260" fill="#0f172a">.claude-plugin/plugin.json</text>
+    <text x="620" y="260" fill="#475569">Manifiesto del plugin para Claude Code</text>
+    <text x="165" y="310" fill="#0f172a">.codex-plugin/plugin.json</text>
+    <text x="620" y="310" fill="#475569">Manifiesto del plugin para OpenAI/Codex</text>
+    <text x="165" y="360" fill="#0f172a">skills/ux-ui-build/SKILL.md</text>
+    <text x="620" y="360" fill="#475569">Diseñar, construir y mejorar interfaces</text>
+    <text x="165" y="410" fill="#0f172a">skills/ux-ui-review/SKILL.md</text>
+    <text x="620" y="410" fill="#475569">Review experta UX/UI sin editar</text>
+    <text x="165" y="460" fill="#0f172a">skills/*/references/</text>
+    <text x="620" y="460" fill="#475569">Base de conocimiento UX/UI proyectada</text>
+    <text x="165" y="510" fill="#0f172a">README.md, LICENSE, docs/</text>
+    <text x="620" y="510" fill="#475569">Documentación y archivos legales</text>
+  </g>
+</svg>
