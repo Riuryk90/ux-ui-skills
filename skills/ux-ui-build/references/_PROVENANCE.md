@@ -1,0 +1,19 @@
+# Provenance
+
+GENERATED_ARTIFACT — do not edit. Edit `canonical/knowledge/` and reproject.
+
+- KNOWLEDGE_VERSION: 0.1.0-dev
+- Posture: build
+- Source: D:\Proyectos\Skill UXUI\canonical\knowledge
+
+| File | SHA-256 |
+|---|---|
+| ACCESSIBILITY.md | 5049a551237b41be749134db6b8c18e2cd8a2bb4ffca34311ab9d36c5ccc13ba |
+| BEST-PRACTICES.md | 61829e1353519fdf2052cc51056c1d290bf420cb71944a25b14a12ff8a3d59a7 |
+| BOUNDARIES.md | 2e171d6b6c83309d2ea35bbbc1e6615c8194b73e4f581a844622f0da7c303b9d |
+| CONTEXTUAL-DECISIONS.md | 874780961eb0c3345da82b4e05e51eaf7eee56a312ca8575df936776a6c12497 |
+| ETHICS.md | 4d1f0cf700cff48641687f7a71ea6987c97cc764e852fa5c1935e16fb9dfc656 |
+| METHODOLOGY-CORE.md | 2aa1bf259d322a4dab6acf8a48a3c06147db547ca2cec08fe7fe42adcfddce82 |
+| PATTERNS.md | ca2b4f4e2e2b1f8129c9e1d7ccfe3a17c7482b42f0e93891be16a7e8566bb67f |
+| PREFERENCES-GUARDRAILS.md | 239663187f7f49715e99d20bcfc3e5ecd8d874328ad55ea8b6907f402009b19b |
+| PRINCIPLES.md | eaf94499b4a824de742805cedc993a2ced955959decd49b2bbdde0f4f69a081a |

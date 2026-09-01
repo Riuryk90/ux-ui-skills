@@ -1,0 +1,10 @@
+{
+  "name": "ux-ui-skills",
+  "version": "1.0.0",
+  "description": "Two standalone UX/UI skills: one for design and implementation, one for expert heuristic review.",
+  "author": {
+    "name": "Wincenth Matthews Muñoz"
+  },
+  "license": "MIT",
+  "skills": "./skills/"
+}

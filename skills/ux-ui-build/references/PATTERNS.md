@@ -1,0 +1,67 @@
+# Patterns
+
+> Canonical operational knowledge. Derived from versioned research under `/research`. Do not edit projected runtime copies manually.
+
+**Role**: 16 familias conceptuales — cada una responde "¿qué solución reutilizable existe para este problema?", no "qué debe hacerse siempre". Ningún patrón es una regla obligatoria; donde la evidencia lo sostiene, alimenta un `GP` (columna Related), pero la familia sigue siendo una opción, no un mandato. No es galería de sitios/templates — sin capturas ni nombres comerciales. **Runtime**: `BOTH_RUNTIME`. **Size**: MEDIUM.
+
+**Nota de alcance**: "Ecommerce" (composición de PF-05/06/08/09) y "Motion" (alias fusionado en PF-03) **no** son familias independientes — ver nota de inventario al final.
+
+---
+
+### PF-01 — Navigation
+**Problema**: organizar el acceso a contenido/producto con múltiples audiencias o catálogo profundo. **Variantes**: por audiencia, por producto, por profundidad delegada a submenú, por dominio separado, por disciplina de alcance mínimo. **Beneficios**: primer nivel escaneable, complejidad delegada al nivel apropiado. **Trade-offs**: contenido de cola larga requiere más esfuerzo de descubrimiento. **Accessibility**: submenús profundos navegables por teclado sin trampas de foco (AR-012); cierre de menú mobile debe incluir `Escape`, no solo click-fuera. **Ethics**: ninguna directa. **Related GP**: GP-001. **Suitable**: 2+ audiencias distintas o catálogo profundo. **Avoid**: audiencia única/pequeña.
+
+### PF-02 — Disclosure / Accordion
+**Problema**: exponer/ocultar contenido secundario (FAQ, filas expandibles) sin sobrecargar la vista inicial. **Variantes**: `<button>` + `aria-expanded`/`aria-controls` (correcto) vs. `<div>`/`<h4>` + `onClick` sin teclado (defectuoso). **Beneficios**: reduce carga visual sin eliminar acceso. **Trade-offs**: ninguno sobre el patrón correcto — el riesgo real es de disciplina de implementación, confirmado incluso dentro de un mismo producto (el patrón correcto e incorrecto coexistiendo). **Accessibility**: crítico, ver GP-006. **Ethics**: ninguna. **Related GP**: GP-006, GP-016. **Suitable**: cualquier FAQ/disclosure/tabla de precios granular. **Avoid**: nunca la variante no interactiva.
+
+### PF-03 — Hero / Motion
+**Problema**: dar prominencia a contenido de alta visibilidad (múltiples mensajes/audiencias) sin fragmentar permanentemente el espacio. **Variantes**: rotación con control de pausa visible (positivo) vs. sin control confirmado (riesgo — AP-001). **Beneficios**: cada mensaje/audiencia obtiene prominencia completa. **Trade-offs**: un visitante que no interactúa puede no ver el mensaje de la otra audiencia en una sola visita. **Accessibility**: crítico, ver GP-003 — pausa/stop/hide obligatorio si dura >5s y coexiste con otro contenido. **Ethics**: ninguna directa si la rotación no oculta información material. **Related GP**: GP-003. **Suitable**: 2+ mensajes de igual prioridad, **con** control de pausa genuinamente operable. **Avoid**: si no se puede garantizar pausa operable — usar secciones apiladas.
+
+### PF-04 — CTA / Conversion
+**Problema**: dar salida a la acción del usuario sin forzar un único embudo cuando no hay meta de conversión única, o guiar claramente cuando sí la hay. **Variantes**: micro-CTA de bajo compromiso repetido por ítem (catálogos); CTA único con reductores de fricción explícitos; precio de referencia + ruta a ventas (B2B). **Beneficios**: cada variante resuelve un contexto de compromiso distinto. **Trade-offs**: el micro-CTA no tiene un CTA dominante único — apropiado solo sin meta de conversión única. **Accessibility**: cada CTA repetido necesita nombre accesible distintivo, no botones indistinguibles (AR-020). **Ethics**: los reductores de fricción deben ser verdaderos (GP-010). **Related GP**: GP-009, GP-010. **Suitable/Avoid**: según modelo de negocio real — no usar micro-CTA si el sitio necesita un embudo único y claro.
+
+### PF-05 — Forms
+**Problema**: capturar entrada del usuario de forma operable, identificable y con feedback claro. **Variantes**: input real vs. simulado; label persistente vs. placeholder-only; feedback con ARIA vs. sin ARIA. **Beneficios**: la variante correcta de cada eje es alcanzable en el mismo segmento de mercado, confirmado por contraejemplos internos. **Trade-offs**: ninguno legítimo para las variantes negativas. **Accessibility**: el área con más evidencia transversal del corpus — ver GP-004, GP-005, GP-006. **Ethics**: ninguna directa en la mecánica del formulario. **Related GP**: GP-004, GP-005, GP-006. **Suitable**: universal. **Avoid**: nunca las variantes negativas (AP-003, AP-005, AP-006).
+
+### PF-06 — Cards / Product Browsing
+**Problema**: presentar ítems de catálogo de forma escaneable y accionable. **Variantes**: tarjeta con CTA explícito por ítem vs. tarjeta completa clicable sin semántica de enlace/botón. **Beneficios**: CTA explícito da nombre accesible claro; tarjeta clicable amplía el área de click pero rompe semántica si no se implementa como `<a>`/`role="link"`. **Trade-offs**: el área de click ampliada no justifica perder operabilidad de teclado (GP-006). **Accessibility**: tarjeta-`<div onClick>` sin semántica no es operable por teclado — patrón muy común en e-commerce. **Ethics**: ninguna. **Related GP**: GP-006. **Suitable**: envolver en `<a>`/`<Link>` real, o `role="link"` + `tabIndex={0}` + `onKeyDown` si debe permanecer `<div>`. **Avoid**: `<div onClick>` sin ninguna semántica de operabilidad.
+
+### PF-07 — Search
+**Problema**: dar acceso a búsqueda sin necesariamente mostrar la palabra "Search" si el ícono ya la comunica, con cierre predecible del overlay. **Variantes**: label visible vs. oculto-accesible; cierre solo por click-fuera vs. también por `Escape`. **Beneficios**: ambos patrones dan la experiencia visual deseada sin sacrificar accesibilidad. **Trade-offs**: ninguno. **Accessibility**: patrones de referencia — ver BP-003, BP-004. **Ethics**: ninguna. **Related GP**: GP-004, GP-006. **Suitable**: cualquier campo/overlay de búsqueda. **Avoid**: ocultar labels que sí aportan claridad visual sin ícono/contexto inequívoco.
+
+### PF-08 — Filtering
+**Problema**: permitir seleccionar variantes/atributos (color, talla, categoría) de forma compacta. **Variantes**: control con nombre accesible textual vs. solo color. **Beneficios**: selección visual compacta. **Trade-offs**: sin nombre accesible, un usuario de lector de pantalla no puede determinar qué representa cada control — hallazgo específico y más severo que otros controles del mismo formulario, merece regla propia (BP-009). **Accessibility**: crítico. **Ethics**: ninguna. **Related GP**: GP-004, GP-006. **Suitable**: cualquier selector visual compacto, siempre con `aria-label`/`title`. **Avoid**: nunca depender solo del color.
+
+### PF-09 — Pricing
+**Problema**: comunicar costo completo y comprensible sin sacrificar la claridad de la cifra principal. **Variantes**: desglose completo visible (positivo); precio de referencia + ruta a ventas (B2B); framing "gratis"/mensual sin prominencia comparable del costo total (riesgo — AP-011, AP-012). **Beneficios**: la divulgación completa no elimina el anclaje de precio legítimo — el problema es la desproporción de prominencia, no la técnica en sí. **Trade-offs**: mostrar el costo total puede reducir conversión inmediata — aceptado a favor de la confianza. **Accessibility**: ninguna directa. **Ethics**: núcleo de GP-009. **Related GP**: GP-009. **Suitable**: cualquier producto con costo variable o financiado. **Avoid**: nunca ocultar/desproporcionar el costo total.
+
+### PF-10 — Social Proof
+**Problema**: comunicar confianza/popularidad de forma creíble. **Variantes**: contenido placeholder no reemplazado (riesgo) vs. contenido real/verificable, vs. señales de transparencia activa (advertencia de fraude, etiquetado de publicidad). **Beneficios**: las señales positivas (advertencia proactiva, etiquetado explícito) son de bajo costo y alto beneficio de confianza. **Trade-offs**: ninguno para las variantes positivas. **Accessibility**: ninguna directa. **Ethics**: núcleo de GP-010. **Related GP**: GP-010. **Suitable**: cualquier prueba social, siempre con contenido real antes de publicar (ver GP-017). **Avoid**: nunca dejar contenido placeholder de demo sin reemplazar/verificar.
+
+### PF-11 — Dashboard / Data-Dense
+**Problema**: presentar múltiples ejes/categorías de datos sin sobrecargar ni ocultar información que el usuario necesita ver simultáneamente. **Variantes**: selector de alcance obligatorio (tabs/toggle) vs. densidad por defecto con personalización opcional. **Beneficios**: cada variante sirve mejor a un perfil de audiencia distinto (casual/periódico vs. power-user recurrente). **Trade-offs**: el más documentado del corpus — un power-user con `WP-006`-tipo selector debe hacer clics repetidos; un usuario nuevo con densidad-por-defecto recibe carga máxima sin pedirla. **Accessibility**: widgets de tabs deben implementar roles ARIA correctamente (AR-020); codificación de color en datos debe ir acompañada de texto explícito. **Ethics**: ninguna. **Related GP**: GP-014. **Ver**: CD-001 (`CONTEXTUAL-DECISIONS.md`) — sin resolución única. **Suitable/Avoid**: depende del perfil de audiencia, no hay "correcto" único.
+
+### PF-12 — Editorial
+**Problema**: presentar contenido cronológico/narrativo (blog, revista) con jerarquía clara y metadata reutilizable. **Variantes**: ninguna adicional documentada — único representante del corpus. **Beneficios**: disciplina tipográfica y de metadata reutilizable sin duplicación por post. **Trade-offs**: ninguno documentado. **Accessibility**: ninguna específica más allá de las generales. **Ethics**: ninguna. **Related GP**: ninguno directo. **Suitable**: blogs/revistas con publicación recurrente. **Avoid**: evidencia insuficiente para generalizar restricciones (fuente única, confidence LOW).
+
+### PF-13 — Feedback / Status
+**Problema**: comunicar el resultado de una acción (envío, carga, error) de forma perceptible para todos los usuarios, incluida tecnología de asistencia. **Variantes**: con `aria-live`/`role="status"` (correcto) vs. cambio de contenido visual silencioso (defectuoso, mayoría del corpus). **Beneficios**: feedback correcto previene incertidumbre y doble-envío. **Trade-offs**: ninguno legítimo para la variante correcta. **Accessibility**: núcleo de GP-005. **Ethics**: ninguna. **Related GP**: GP-005. **Suitable**: cualquier acción asíncrona. **Avoid**: nunca depender solo de cambio visual silencioso (AP-006).
+
+### PF-14 — Responsive / Layout
+**Problema**: adaptar la interfaz a distintos anchos de viewport de forma mantenible. **Variantes**: mapa de breakpoints nombrado vs. valores dispersos sin sistema; mecanismo CSS puro vs. UA-sniffing en JS para layouts tipo "frame" de app móvil. **Beneficios**: un sistema nombrado reduce inconsistencia, facilita cambiar un breakpoint en un solo lugar. **Trade-offs**: más breakpoints/tokens no implica mejor sistema — la coherencia interna importa más que la cantidad. **Accessibility**: ninguna directa. **Ethics**: ninguna. **Related GP**: GP-015. **Suitable**: proyectos con 3+ breakpoints. **Avoid**: páginas triviales de una sola sección.
+
+### PF-15 — Component Interaction / Architecture
+**Problema**: cómo estructurar la relación entre datos y presentación, y cómo producir variantes múltiples de un mismo producto. **Variantes**: capa de datos dedicada + componentes reales vs. duplicación de HTML por variante ("N homes desde un solo producto"). **Beneficios**: la separación de datos permite reutilizar el mismo componente con distintos datasets — "corregido una vez, corregido en todas partes" solo es alcanzable así. **Trade-offs**: añade una capa de indirección; en HTML estático, cualquier corrección global debe aplicarse N veces manualmente, con alto riesgo de inconsistencia (confirmado directamente en el corpus). **Accessibility**: el riesgo de "corregido en una variante, no en las demás" es real y verificado — ver GP-016. **Ethics**: ninguna. **Related GP**: GP-016. **Suitable**: stacks con sistema de componentes real, especialmente multi-variante/multi-vertical. **Avoid**: sitio de una sola página sin variantes reales — el overhead no se justifica.
+
+### PF-16 — Feedback & Rating
+**Problema**: recoger feedback/calificación del usuario cuando un mecanismo granular tiene baja tasa de uso real. Distinta de PF-13: aquí el problema es captura de calificación, no comunicación de estado. **Variantes**: mecanismo granular (ej. 5 estrellas) vs. binario (sí/no, me gusta/no me gusta). **Beneficios**: puede aumentar la tasa de uso real cuando el detalle granular no se estaba usando de todas formas. **Trade-offs**: pierde granularidad — no aplica si el detalle es el valor central del producto (ej. reseñas donde el matiz importa). **Accessibility**: ninguna directa. **Ethics**: ninguna. **Related GP**: ninguno directo. **Suitable**: sistemas de feedback/calificación con baja tasa de uso granular confirmada. **Avoid**: cuando el detalle granular es el valor central del producto.
+
+---
+
+## Nota de inventario
+
+No cuentan como familia independiente (categorías transversales/alias, no problema-solución propios):
+- **Ecommerce** — composición de PF-05, PF-06, PF-08, PF-09 aplicada al dominio e-commerce.
+- **"Motion"** — alias fusionado dentro de PF-03 (Hero/Motion).
+
+**Total: 16/16 Pattern Families.** Fuente: `research/synthesis/PATTERN-TAXONOMY.md` (tabla "Inventario canónico").

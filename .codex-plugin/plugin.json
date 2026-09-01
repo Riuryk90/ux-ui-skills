@@ -1,0 +1,35 @@
+{
+  "name": "ux-ui-skills",
+  "version": "1.0.0",
+  "description": "Two standalone UX/UI skills: one for design and implementation, one for expert heuristic review.",
+  "author": {
+    "name": "Wincenth Matthews Muñoz"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "keywords": [
+    "ux",
+    "ui",
+    "design",
+    "accessibility",
+    "heuristic-review"
+  ],
+  "interface": {
+    "displayName": "UX/UI Skills",
+    "shortDescription": "Build and review user interfaces with UX/UI judgment.",
+    "longDescription": "A skills-only package containing ux-ui-build for authorized interface design and implementation work, and ux-ui-review for read-only expert UX/UI critique. The skills apply usability, accessibility-signal, ethical-UX, pattern, and boundary guidance without claiming formal user testing, legal review, security review, or WCAG certification.",
+    "developerName": "Wincenth Matthews Muñoz",
+    "category": "Productivity",
+    "capabilities": [
+      "Design",
+      "Review",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Improve this interface with ux-ui-build.",
+      "Review this UI with ux-ui-review.",
+      "Audit this flow for UX risks."
+    ],
+    "brandColor": "#10A37F"
+  }
+}
